@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>柳姑娘泡妞记</title>
+</head>
+<body>
+    <script>
+   // alert('I am the max!');
+   class Flower{
+       constructor(type,n) {
+           this.type=type;
+           this.n=n;
+       }
+   }
+   var xm={
+       name:'柳姑娘',
+       age:17,
+       favorites:['coding','reading','sleeping'],
+       room:129,
+       y:80,
+       isSingle:true,
+       sendFlower:function(target) {
+           var flower=new Flower('redrose',11); 
+            console.log(flower.type,flower.n);
+            target.receiveFlower(this, flower);
+       }
+   }
+   var  mm={
+       name:'何先生',
+       age:18,
+       isGoodMod:false,
+       favorites:['missing','listen','cooking'],
+       room:335,
+       isSingle:true,
+       receiveFlower:function(sender,flower) {
+           // if(sender.y<90){
+              if(!this.isGoodMod){
+           console.log('refuse you...');
+        }else{
+            console.log('ok,let go!');
+        } 
+        console.log(sender,flower);    
+       }
+   }
+   var cc={
+       hometown:'GZ',
+       receiveFlower:function(sender,flower){
+           //if(sender.name=='柳姑娘'){
+            //   console.log('we together...');
+           //}else{
+               setTimeout(function(){
+                   mm.isGoodMod=true;
+               mm.receiveFlower(sender,flower);
+           },1000)
+      }
+   }
+    xm.sendFlower(cc);  
+    </script>
+</body>
+</html>
